@@ -1,6 +1,6 @@
   
 body {
-    background-color: #f6f6f6;
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
     font-family: "Merriweather", serif;
   }
   
@@ -61,3 +61,7 @@ body {
     position: relative;
     top: -34px;
   }
+  .github {
+      margin-left: 20px;
+  }
+  
