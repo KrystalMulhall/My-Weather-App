@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
@@ -20,6 +21,7 @@
 </head>
 <body>
     <div class="container">
+      <div class= "weather-app-wrapper">
      
 <form id= "search-form">
     <input type="text" placeholder="Enter Your City..." autofocus="off" autocomplete="off" id = "city-input" />
@@ -38,31 +40,32 @@
         8:30 am
     </h2>
     <div class="weather-app">
-    <div class="row">
-      <div class="col-6">
-        <div class="clearfix">
-          <div class="float-left">
-    <ul>
-      <li>
-          Humidity: <span id="humidity"></span>%
-      </li>
-      <li>
-          Wind: <span id="wind"></span>km/hr
-      </li>
-      <li id="description">
-         </li>
-         <li>
-          Sunrise: <span id="sunrise">7:00</span>am
+      <div class="row">
+        <div class="col-6">
+          <div class="clearfix">
+            <div class="float-left">
+      <ul>
+        <li>
+            Humidity: <span id="humidity"></span>%
         </li>
         <li>
-          Sunset: <span id="sunset">7:36</span>pm
+            Wind: <span id="wind"></span>km/hr
         </li>
-    </ul>
-    </div>
+        <li id="description">
+           </li>
+           <li>
+            Sunrise: <span id="sunrise">7:00</span>am
+          </li>
+          <li>
+            Sunset: <span id="sunset">7:36</span>pm
+          </li>
+      </ul>
       </div>
-      </div>
-          <div class="col-6">
-        <div class="float-left">
+        </div>
+        </div>
+            <div class="col-6">
+          <img src="snow.png" alt="snow" class="weather-icon float-left">
+          <div class="float-left">
 				<span class="temp" id = "temperature">
 					</span>
 				<span class="units">
@@ -74,76 +77,13 @@
     </div>
     </div>
 
-        <div class ="row">
-          <div class="col">
-            <div class="card" style="width:15rem; height: 15rem;">
-              <div class="card-body"> Sunday
-                <h5 class="Sunday">
-                  ☀
-                  <br />
-                  -3° | -13°
-                </h5>
-              </div>
-            </div>
-          </div> 
-        </div>
+        
 
-
-
-          <div class="col"></div>
-            <div class="card" style="width: 15rem; height: 15rem;">
-              <div class="card-body"> Monday
-                <h5 class="Monday">
-                  ☀
-                  <br />
-                  -7° | -13°
-                </h5>
-              </div>
-            </div>
-        </div>
-    </div>
-
-        <div class="col">
-            <div class="card" style="width: 15rem; height: 15rem;">
-              <div class="card-body"> Tuesday
-                <h5 class="Tuesday">
-                  ☀
-                  <br />
-                  -9° | -18°
-                </h5>
-              </div>
-            </div>
-
-            <div class="col"></div>
-            <div class="card" style="width: 15rem; height: 15rem;">
-              <div class="card-body"> Wednesday
-                <h5 class="Wednesday">
-                  ☁
-                  <br />
-                  -6° | -11°
-                </h5>
-              </div>
-            </div>
-    </div>
-           <div class="col">
-            <div class="card" style="width: 15rem; height: 15rem;">
-              <div class="card-body"> Thursday
-                <h5 class="Thursday">
-                  ⛅
-                  <br />
-                  -3° | -7°
-                </h5>
-            </div>
-            </div>
-            </div>
-      </div>
-      </div>
-    </div>
-
-    <p>
+    <small>
         <a href="https://github.com/KrystalMulhall/My-Weather-App" target="_blank" class="github" >
           Open Source Code</a> by Krystal Mulhall
-          </p>
+    </small>
+  </div>
 </div>
 <script src="script.js"></script>
 </body>
