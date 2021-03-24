@@ -36,19 +36,29 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 h2.innerHTML = `${day} ${month} ${date}, ${year}  <br /> ${hours}:${minutes}`;
-
  
 function displayWeatherCondition(response) {
 
- document.querySelector("#city").innerHTML = response.data.name;
- document.querySelector("#temperature").innerHTML = Math.round (response.data.main.temp);
+ let cityElement = document.querySelector("#city");
+ let temperatureElement = document.querySelector("#temperature");
+ let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind");
+let descriptionElement = document.querySelector("#description");
+let sunriseElement = document.querySelector("#sunrise");
+let sunsetElement = document.querySelector("#sunset");
+let iconElement = document.querySelector("#icon");
 
-document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-document.querySelector("#wind").innerHTML = Math.round (response.data.wind.speed);
-document.querySelector("#description").innerHTML = response.data.weather[0].main;
-document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
-document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+cityElement.innerHTML = response.data.name;
+temperatureElement.innerHTML = Math.round (response.data.main.temp);
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round (response.data.wind.speed);
+descriptionElement.innerHTML = response.data.weather[0].main;
+sunriseElement.innerHTML = response.data.sys.sunrise;
+sunsetElement.innerHTML = response.data.sys.sunset;
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
 }
+
 
 function searchCity (city) {
 let apiKey = "b41bf430779b02c52dcbfecec30e2a8e";  
