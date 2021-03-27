@@ -48,8 +48,10 @@ let sunriseElement = document.querySelector("#sunrise");
 let sunsetElement = document.querySelector("#sunset");
 let iconElement = document.querySelector("#icon");
 
+celsiusTemperature = response.data.main.temp;
+
 cityElement.innerHTML = response.data.name;
-temperatureElement.innerHTML = Math.round (response.data.main.temp);
+temperatureElement.innerHTML = Math.round (celsiusTemperature);
 humidityElement.innerHTML = response.data.main.humidity;
 windElement.innerHTML = Math.round (response.data.wind.speed);
 descriptionElement.innerHTML = response.data.weather[0].main;
@@ -88,25 +90,31 @@ function getCurrentLocation (event) {
 function convertToFarenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add ("active");
+  let farenheitTemperature = (celsiusTemperature * 9 ) / 5 + 32;
+  temperatureElement.innerHTML = Math.round (farenheitTemperature);
 }
+
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector ("#temperature");
+  temperatureElement.innerHTML = Math.round (celsiusTemperature);
 }
 
-
+let celsiusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
+
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", convertToFarenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
 
 searchForm.addEventListener("submit", handleSubmit);
 
