@@ -1,6 +1,6 @@
   
 body {
-    background-color: #8ED6FF;
+    background-color: #FFEED0;
     font-family: 'Merriweather', serif;
     }
   
@@ -39,21 +39,70 @@ body {
     text-transform: capitalize;
   }
 
+ 
   button {
-    padding: 10px;
-    color: blueviolet;
-  }
+    font-size: 15px;
+    margin: 5 auto;
+    padding: 20px 30px;
+    background-color: black;
+    color:white;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+     border:none;
+     transition:all 200ms ease-in-out;
+}
+
+button:hover {
+    background: #6D5943;
+    color:white;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+
   
   .weather-app {
+    background-color: #8ED6FF;
     border: 1px solid black;
     border-radius: 20px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 700px;
   }
   .weather-app-wrapper {
-    max-width: 600px;
+    max-width: 700px;
     margin: 30px auto;
+  }
+
+  .weather-forecast{
+    margin-top: 10px;
+  }
+
+  .weather-forecast h3 {
+    color:black;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    height: 5px;
+    line-height: normal;
+    padding-top: 10px;
+  }
+
+  .weather-forecast img {
+    display: inline-block;
+    margin: 0, auto;
+    height: 48px;
+    width: 49px;
+  }
+
+  .weather-forecast-temperature {
+    text-align: center;
+    color: blue;
+    font-size: 10px;
+    font-weight: normal;
+    height: 5;
+    line-height: normal;
   }
   .icon {
     height: 75px;
