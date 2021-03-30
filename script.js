@@ -1,5 +1,8 @@
-let now = new Date();
+  
+function formatDate(timestamp) {
+let date = new Date(timestamp);
 let h2 = document.querySelector("h2");
+
 let days = [
   "Sunday",
   "Monday",
@@ -9,39 +12,39 @@ let days = [
   "Friday",
   "Saturday"
 ];
-let day = days[now.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-let month = months[now.getMonth()];
-let date = now.getDate();
-let year = now.getFullYear();
-let hours = now.getHours();
+let day = days[date.getDay()];
+
+
+let hours = date.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
 }
-let minutes = now.getMinutes();
+let minutes = date.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-h2.innerHTML = `${day} ${month} ${date}, ${year}  <br /> ${hours}:${minutes}`;
- 
+h2.innerHTML = `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 function displayWeatherCondition(response) {
 
- let cityElement = document.querySelector("#city");
- let temperatureElement = document.querySelector("#temperature");
- let humidityElement = document.querySelector("#humidity");
+let cityElement = document.querySelector("#city");
+let temperatureElement = document.querySelector("#temperature");
+let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
 let descriptionElement = document.querySelector("#description");
 let sunriseElement = document.querySelector("#sunrise");
@@ -51,12 +54,14 @@ let iconElement = document.querySelector("#icon");
 celsiusTemperature = response.data.main.temp;
 
 cityElement.innerHTML = response.data.name;
+
 temperatureElement.innerHTML = Math.round (celsiusTemperature);
 humidityElement.innerHTML = response.data.main.humidity;
 windElement.innerHTML = Math.round (response.data.wind.speed);
 descriptionElement.innerHTML = response.data.weather[0].main;
 sunriseElement.innerHTML = response.data.sys.sunrise;
 sunsetElement.innerHTML = response.data.sys.sunset;
+
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
 }
@@ -69,14 +74,75 @@ function displayForecast (response) {
   forecastElement.innerHTML=
   `  <div class = "col-2">
   <h3>
-    Sunday
+    ${formatHours(forecast.dt * 1000)}
   </h3>
-  <img src="snow.png">
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
   <div class = "weather-forecast-temperature">
-    <strong>${Math.round(forecast.main.temp_max)}°</strong>17°   
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+</div>
+</div>`;
+
+forecast = response.data.list[1];
+forecastElement.innerHTML +=`
+<div class = "col-2">
+  <h3>
+    ${formatHours(forecast.dt * 1000)}
+  </h3>
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+  <div class = "weather-forecast-temperature">
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+</div>
+</div>`;
+
+forecast = response.data.list[2];
+forecastElement.innerHTML +=`
+<div class = "col-2">
+  <h3>
+    ${formatHours(forecast.dt * 1000)}
+  </h3>
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+  <div class = "weather-forecast-temperature">
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+</div>
+</div>`;
+
+forecast = response.data.list[3];
+forecastElement.innerHTML +=`
+<div class = "col-2">
+  <h3>
+    ${formatHours(forecast.dt * 1000)}
+  </h3>
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+  <div class = "weather-forecast-temperature">
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+</div>
+</div>`;
+
+forecast = response.data.list[4];
+forecastElement.innerHTML +=`
+<div class = "col-2">
+  <h3>
+    ${formatHours(forecast.dt * 1000)}
+  </h3>
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+  <div class = "weather-forecast-temperature">
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+</div>
+</div>`;
+
+forecast = response.data.list[5];
+forecastElement.innerHTML +=`
+<div class = "col-2">
+  <h3>
+    ${formatHours(forecast.dt * 1000)}
+  </h3>
+  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+  <div class = "weather-forecast-temperature">
+    <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
 </div>
 </div>`;
 }
+
 
 function searchCity (city) {
 let apiKey = "b41bf430779b02c52dcbfecec30e2a8e";  
@@ -142,3 +208,4 @@ let currentLocationButton = document.querySelector ("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity ("Toronto");
+
