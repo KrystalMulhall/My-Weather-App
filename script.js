@@ -45,9 +45,6 @@ function formatDate(timestamp) {
   let temperatureElement = document.querySelector("#temperature");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let descriptionElement = document.querySelector("#description");
-  let sunriseElement = document.querySelector("#sunrise");
-  let sunsetElement = document.querySelector("#sunset");
   let iconElement = document.querySelector("#icon");
   
   celsiusTemperature = response.data.main.temp;
@@ -57,9 +54,7 @@ function formatDate(timestamp) {
   temperatureElement.innerHTML = Math.round (celsiusTemperature);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round (response.data.wind.speed);
-  descriptionElement.innerHTML = response.data.weather[0].main;
-  sunriseElement.innerHTML = response.data.sys.sunrise;
-  sunsetElement.innerHTML = response.data.sys.sunset;
+ 
   
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   
