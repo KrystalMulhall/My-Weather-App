@@ -1,6 +1,6 @@
   
 body {
-    background-color: black;
+    background-color:black;
     font-family: 'Merriweather', serif;
     }
   
@@ -25,7 +25,7 @@ body {
  
   ul {
     margin: 0;
-    padding: 0;
+    padding: 15px;
   }
   
   li {
@@ -60,15 +60,18 @@ button:hover {
     opacity: 0.9;
 }
 
-
+.wind {
+  text-transform: lowercase;
+}
   
   .weather-app {
     background-color: #8ED6FF;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 40px;
     padding: 30px;
     margin: 20px auto;
     max-width: 900px;
+    max-height: 900px;
   }
   .weather-app-wrapper {
     max-width: 700px;
