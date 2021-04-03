@@ -1,29 +1,41 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let h2 = document.querySelector("h2");
-  
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
-  let day = days[date.getDay()];
-  
-  
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  h2.innerHTML = `${day} ${formatHours(timestamp)}`;
-  }
+let now = new Date();
+let h2 = document.querySelector("h2");
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+let day = days[now.getDay()];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+let month = months[now.getMonth()];
+let date = now.getDate();
+let year = now.getFullYear();
+let hours = now.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+h2.innerHTML = `Last Updated: <br /> ${day} ${month} ${date}, ${year}`;  
   
   function formatHours(timestamp) {
     let date = new Date(timestamp);
@@ -72,7 +84,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   
@@ -84,7 +96,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   
@@ -96,7 +108,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   
@@ -108,7 +120,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   
@@ -120,7 +132,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   
@@ -132,7 +144,7 @@ function formatDate(timestamp) {
     </h3>
     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
     <div class = "weather-forecast-temperature">
-      <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°   
+      <strong>${Math.round(forecast.main.temp_max)}° | </strong>${Math.round(forecast.main.temp_min)}°   
   </div>
   </div>`;
   }
