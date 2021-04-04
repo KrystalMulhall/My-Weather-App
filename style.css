@@ -1,16 +1,17 @@
   
 body {
-    background-color:#F9F3F3;
+    background-color:#F8F5F1;
     font-family: 'Merriweather', serif;
     }
   
   form {
-    padding-top: 20px;
+    padding-top: 10px;
   }
   h1 {
     color: #00AF91;
     margin: 0 auto;
     font-size: 70px;
+    font-weight: bold;
     text-align: center;
 
   }
@@ -27,6 +28,7 @@ body {
   ul {
     margin-top: 10px;
     padding: 20px;
+    color: black;
   }
   
   li {
@@ -43,21 +45,22 @@ body {
  
   button {
     font-size: 15px;
-    margin: 5 auto;
-    padding: 20px 30px;
-    background-color: black;
+    margin: 10 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: gray;
     color:white;
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-     border:none;
-     transition:all 200ms ease-in-out;
+    border:none;
+    transition:all 200ms ease-in-out;
 }
 
 button:hover {
-    background: #6D5943;
+    background:  #FF005C;
     color:white;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
     opacity: 0.9;
 }
 
@@ -76,7 +79,7 @@ button:hover {
   }
   .weather-app-wrapper {
     max-width: 700px;
-    margin: 30px auto;
+    margin: 20px auto;
   }
 
   .weather-forecast{
@@ -106,24 +109,24 @@ button:hover {
   .weather-forecast-temperature {
     text-align: center;
     color: #48426D;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bolder;
-    height: 5;
+    height: 5px;
     line-height: normal;
   }
   .icon {
-    height: 75px;
-    width: 75px;
-    margin-right: 100px;
+    height: 80px;
+    width: 80px;
+    margin-right: 300px;
   }
   .temp {
     color: black;
-    font-size: 55px;
+    font-size: 80px;
     font-weight: 400;
   }
   .units {
     position: relative;
-    top: -30px;
+    top: -40px;
   }
   .github {
       margin-left: 20px;
