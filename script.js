@@ -168,9 +168,11 @@ h2.innerHTML = `Last Updated: <br /> ${day} ${month} ${date}, ${year}`;
   }
   
   function searchLocation(position) {
-  let apiKey = "b41bf430779b02c52dcbfecec30e2a8e";  
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+    let apiKey = "b41bf430779b02c52dcbfecec30e2a8e";  
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeatherCondition);
+    apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
   }
   
   function getCurrentLocation (event) {
